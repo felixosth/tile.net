@@ -6,5 +6,28 @@ This library is built on an unpublished, unofficial Tile API; it may alter or ce
 
 The code is ported (copy pasted) from the python library [pytile](https://github.com/bachya/pytile).
 
+## Usage
+
+```csharp
+
+var email = "your@email.com";
+var password = "pwd";
+
+var client = new TileClient(email, password);
+
+await client.Initialize();
+
+var tiles = await client.GetTiles();
+
+...
+
+// Check if the session is expired before fetching the tiles and call Initialize again if needed
+if (DateTimeOffset.Now > client.SessionExpiration)
+{
+    await client.Initialize();
+}
+
+```
+
 ## Contributing
 There's plenty of room for improvements so drop a PR if you'd like, or submit an issue.
