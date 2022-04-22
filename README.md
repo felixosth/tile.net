@@ -1,6 +1,6 @@
 # Tile.NET: A simple .NET API for Tile® Bluetooth trackers
 
-Tile.NET is a simple .NET library for retrieving information on [Tile® Bluetooth trackers](https://www.thetileapp.com/en-us/) (including last location and more).
+Tile .NET is a simple .NET library for retrieving information on [Tile® Bluetooth trackers](https://www.thetileapp.com/en-us/) (including last location and more).
 
 This library is built on an unpublished, unofficial Tile API; it may alter or cease operation at any point.
 
