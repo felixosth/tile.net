@@ -29,5 +29,14 @@ if (DateTimeOffset.Now > client.SessionExpiration)
 
 ```
 
+### Examples
+
+See the Wpf and Console project examples.
+
+Console
+![Console example](/Assets/example_console.png)
+Wpf
+![Wpf example](/Assets/example_wpf.png)
+
 ## Contributing
 There's plenty of room for improvements so drop a PR if you'd like, or submit an issue.
