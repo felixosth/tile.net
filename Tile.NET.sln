@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tile.NET", "Tile.NET\Tile.NET.csproj", "{EECE39D9-8602-4526-987E-4CB23629D3B6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tile.NET.Example.Console", "Tile.NET.Example\Tile.NET.Example.Console.csproj", "{85E54D32-143D-4634-9AA8-431DFB7DCB69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tile.NET.Example.Console", "Tile.NET.Example.Console\Tile.NET.Example.Console.csproj", "{85E54D32-143D-4634-9AA8-431DFB7DCB69}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tile.NET.Example.Wpf", "Tile.NET.Example.Wpf\Tile.NET.Example.Wpf.csproj", "{052D1CFC-DF38-42AA-999F-AF893EB10C77}"
 EndProject
