@@ -6,7 +6,13 @@ using Tile.NET.Model.Api;
 
 namespace Tile.NET
 {
-    public class TileClient
+    public interface ITileClient
+    {
+        Task Initialize();
+        Task<IEnumerable<TileTracker>> GetTiles();
+    }
+
+    public class TileClient : ITileClient
     {
         private const string API_URL = "https://production.tile-api.com";
         private const string API_VERSION = "1.0";
