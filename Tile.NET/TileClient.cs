@@ -8,7 +8,7 @@ namespace Tile.NET
 {
     public interface ITileClient
     {
-        Task Initialize();
+        Task Initialize(string email, string password, Guid clientId = default);
         Task<IEnumerable<TileTracker>> GetTiles();
     }
 
@@ -21,44 +21,31 @@ namespace Tile.NET
         private const string LOCALE = "en-GB";
         private const string USER_AGENT = "Tile/4774 CFNetwork/1312 Darwin/21.0.0";
 
-        private readonly string _email;
-        private readonly string _password;
-        private readonly string _clientId;
+        private string? _clientId;
+        private string? _userId;
 
         private readonly CookieContainer _cookieContainer = new CookieContainer();
-
-        private bool _clientEstablished = false;
-        private string? _userId;
 
         private DateTimeOffset _sessionExpiration = DateTimeOffset.UtcNow;
         public DateTimeOffset SessionExpiration => _sessionExpiration;
 
-        public TileClient(string email, string password, Guid clientId = default)
+        public async Task Initialize(string email, string password, Guid clientId = default)
         {
-            _email = email;
-            _password = password;
-            _clientId = clientId != Guid.Empty ? clientId.ToString() : Guid.NewGuid().ToString();
-        }
+            _clientId = clientId != default ? clientId.ToString() : Guid.NewGuid().ToString();
 
-        public async Task Initialize()
-        {
-            if (_clientEstablished == false)
-            {
-                var clientRequestData = new Dictionary<string, string>()
+            var clientRequestData = new Dictionary<string, string>()
                 {
                     { "app_id", APP_ID },
                     { "app_version", APP_VERSION },
                     { "locale", LOCALE }
                 };
 
-                await Request<ClientResponse>(HttpMethod.Put, $"clients/{_clientId}", clientRequestData);
-                _clientEstablished = true;
-            }
+            await Request<ClientResponse>(HttpMethod.Put, $"clients/{_clientId}", clientRequestData);
 
             var requestData = new Dictionary<string, string>()
                 {
-                    { "email", _email },
-                    { "password", _password },
+                    { "email", email },
+                    { "password", password },
                 };
 
             var loginResponse = await Request<SessionResponse>(HttpMethod.Post, $"clients/{_clientId}/sessions", requestData);
