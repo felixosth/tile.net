@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-push:
 
     runs-on: ubuntu-latest
 
@@ -27,11 +27,6 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Pack
-      run: dotnet pack Tile.NET/Tile.NET.csproj -c Release
+      run: dotnet pack Tile.NET/Tile.NET.csproj -c Release -o out
     - name: Publish NuGet package
-      run: |
-        $packages = Get-ChildItem -Recurse -Include *.nupkg
-        foreach($file in $packages) {
-            Write-Output "Pushing $file"
-            dotnet nuget push "$file" --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-        }
+      run: dotnet nuget push ./out/*.nupkg --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
