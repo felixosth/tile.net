@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tile.NET.Example.Console", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tile.NET.Example.Wpf", "Tile.NET.Example.Wpf\Tile.NET.Example.Wpf.csproj", "{052D1CFC-DF38-42AA-999F-AF893EB10C77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tile.NET.Tests", "Tile.NET.Tests\Tile.NET.Tests.csproj", "{67405A4E-0083-4D86-AA83-7A2B4E4E6DA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tile.NET.Tests", "Tile.NET.Tests\Tile.NET.Tests.csproj", "{67405A4E-0083-4D86-AA83-7A2B4E4E6DA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{77ADEA44-8123-440B-83E9-75F396BD2884}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
