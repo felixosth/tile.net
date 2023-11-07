@@ -12,7 +12,7 @@ namespace Tile.NET.Example.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private TileClient? _tileClient = new TileClient();
+        private TileClient _tileClient = new TileClient();
         private IEnumerable<TileTracker>? _tiles;
 
         public MainWindow()

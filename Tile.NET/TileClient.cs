@@ -29,6 +29,10 @@ namespace Tile.NET
         private DateTimeOffset _sessionExpiration = DateTimeOffset.UtcNow;
         public DateTimeOffset SessionExpiration => _sessionExpiration;
 
+        public TileClient()
+        {
+        }
+
         public async Task Initialize(string email, string password, Guid clientId = default)
         {
             _clientId = clientId != default ? clientId.ToString() : Guid.NewGuid().ToString();
@@ -78,7 +82,6 @@ namespace Tile.NET
 
             using var httpClient = BuildHttpClient();
             HttpResponseMessage? response = null;
-
             response = await httpClient.SendAsync(request);
 
             if (response.StatusCode == HttpStatusCode.Unauthorized)
@@ -94,9 +97,9 @@ namespace Tile.NET
         {
             var httpClientHandler = new HttpClientHandler
             {
-                CookieContainer = _cookieContainer
+                CookieContainer = _cookieContainer,
+                DefaultProxyCredentials = CredentialCache.DefaultCredentials
             };
-
             var httpClient = new HttpClient(httpClientHandler);
 
             httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(USER_AGENT);
