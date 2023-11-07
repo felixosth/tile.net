@@ -1,6 +1,6 @@
 ﻿namespace Tile.NET.Model.Api
 {
-    internal class TileResponse
+    public class TileResponse
     {
         public int version { get; set; }
         public int revision { get; set; }
@@ -10,7 +10,7 @@
         public TileTrackerResult result { get; set; }
     }
 
-    internal class TileTrackerResult
+    public class TileTrackerResult
     {
         public long last_modified_timestamp { get; set; }
         public string status { get; set; }
@@ -52,16 +52,16 @@
         public object product_friendly_name { get; set; }
     }
 
-    internal class User_Node_Data
+    public class User_Node_Data
     {
     }
 
-    internal class Configuration
+    public class Configuration
     {
         public object fw10_advertising_interval { get; set; }
     }
 
-    internal class Last_Tile_State
+    public class Last_Tile_State
     {
         public string uuid { get; set; }
         public int connectionStateCode { get; set; }
@@ -98,7 +98,7 @@
         public string voip_state { get; set; }
     }
 
-    internal class Metadata
+    public class Metadata
     {
     }
 
