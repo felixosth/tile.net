@@ -1,14 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Tile.NET\Tile.NET.csproj" />
-  </ItemGroup>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Tile.NET\Tile.NET.csproj" />
+	</ItemGroup>
 
 </Project>
