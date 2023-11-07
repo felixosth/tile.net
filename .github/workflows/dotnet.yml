@@ -30,7 +30,8 @@ jobs:
       run: dotnet pack Tile.NET/Tile.NET.csproj -c Release
     - name: Publish NuGet package
       run: |
-           foreach($file in (Get-ChildItem -Recurse -Include *.nupkg)) {
-               Write-Output "Pushing $file"
-               dotnet nuget push "$file" --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-           }
+        $packages = Get-ChildItem -Recurse -Include *.nupkg
+        foreach($file in $packages) {
+            Write-Output "Pushing $file"
+            dotnet nuget push "$file" --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+        }
