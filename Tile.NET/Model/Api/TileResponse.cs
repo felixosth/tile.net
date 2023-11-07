@@ -46,7 +46,7 @@
         public bool auto_retile { get; set; }
         public object all_user_node_relationships { get; set; }
         public bool is_lost { get; set; }
-        public int auth_timestamp { get; set; }
+        public long auth_timestamp { get; set; }
         public string tile_type { get; set; }
         public long registration_timestamp { get; set; }
         public object product_friendly_name { get; set; }
@@ -82,7 +82,7 @@
         public object authentication { get; set; }
         public bool owned { get; set; }
         public object has_authentication { get; set; }
-        public int lost_timestamp { get; set; }
+        public long lost_timestamp { get; set; }
         public string connection_client_uuid { get; set; }
         public long connection_event_timestamp { get; set; }
         public int last_owner_update { get; set; }

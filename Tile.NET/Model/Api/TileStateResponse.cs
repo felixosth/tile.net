@@ -28,7 +28,7 @@
 
     internal class Mark_As_Lost
     {
-        public int timestamp { get; set; }
+        public long timestamp { get; set; }
         public bool is_lost { get; set; }
         public bool is_owner_contact_provided { get; set; }
     }
