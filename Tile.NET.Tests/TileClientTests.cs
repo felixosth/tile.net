@@ -1,5 +1,5 @@
-using Xunit;
 using Tile.NET.Exceptions;
+using Xunit;
 
 namespace Tile.NET.Tests
 {
@@ -8,15 +8,15 @@ namespace Tile.NET.Tests
         [Fact]
         public void InvalidSessionThrowsException()
         {
-            var tileClient = new TileClient("", "");
+            var tileClient = new TileClient();
             Assert.ThrowsAsync<SessionException>(async () => await tileClient.GetTiles());
         }
 
         [Fact]
         public void InvalidLoginThrowsException()
         {
-            var tileClient = new TileClient("", "");
-            Assert.ThrowsAsync<UnauthorizedException>(async () => await tileClient.Initialize());
+            var tileClient = new TileClient();
+            Assert.ThrowsAsync<UnauthorizedException>(async () => await tileClient.Initialize("", ""));
         }
     }
 }

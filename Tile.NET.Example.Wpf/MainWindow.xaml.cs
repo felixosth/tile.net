@@ -12,7 +12,7 @@ namespace Tile.NET.Example.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private TileClient? _tileClient;
+        private TileClient? _tileClient = new TileClient();
         private IEnumerable<TileTracker>? _tiles;
 
         public MainWindow()
@@ -25,10 +25,9 @@ namespace Tile.NET.Example.Wpf
             if ((string)_loginBtn.Content == "Login")
             {
                 _loginBtn.IsEnabled = false;
-                _tileClient = new TileClient(_emailTextBox.Text, _passwordPwdBox.Password);
                 try
                 {
-                    await _tileClient.Initialize();
+                    await _tileClient.Initialize(_emailTextBox.Text, _passwordPwdBox.Password);
 
                     _tiles = await _tileClient.GetTiles();
                     _tilesListBox.ItemsSource = _tiles;

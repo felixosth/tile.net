@@ -6,8 +6,8 @@ using Tile.NET.Model;
 var email = "your@email.com";
 var password = "pwd";
 
-var client = new TileClient(email, password);
-await client.Initialize();
+var client = new TileClient();
+await client.Initialize(email, password);
 var tiles = await client.GetTiles();
 
 var tileProperties = typeof(TileTracker).GetProperties();
